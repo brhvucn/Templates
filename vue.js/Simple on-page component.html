@@ -1,0 +1,39 @@
+<div id="app">
+    <button v-on:click="addCustomer()">Add</button>
+    <div>Variable: {{name}}</div>
+    <div v-for="(item, index) in customers" :key="index">
+        <div>{{item.name}} - {{item.address}}</div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app', //the id tag of the html element where this component will initialise
+        data: {
+            //this is my own data
+            name: 'My Name',            
+            customers: []
+        },
+        created() {
+            //lifecycle hook for created
+            console.log("created lifecycle hook");
+        },
+        mounted() {
+            //lifecycle hook for mounted - happens before render
+            console.log("mounted licecycle hook");
+        },
+        methods: {
+            //these are my own methods
+            addCustomer() {
+                //create empty object
+                let newCustomer = {
+                    "name" : "Customer Name",
+                    "address" : "Street 123"
+                }
+                //add it to the list
+                this.customers.push(newCustomer);
+            }            
+        }
+    });
+</script>
