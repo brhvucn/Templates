@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to C# Classes</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div style="padding:30px;margin-bottom:10px;">
+        <textarea style="width:100%" placeholder="Paste your json here" id="inputarea"></textarea>
+    </div>
+    <div style="margin-bottom:10px;padding:30px">
+        <button id="translatebutton" style="padding:5px;">Translate JSON to C# Classes</button>
+    </div>
+    <div style="margin-bottom:10px;padding:30px;">
+        <pre style="background-color: #FDFDFD;border:1px solid #DFDFDF;padding:30px;width:100%" id="outputarea"></pre>
+    </div>    
+    <script>
+        const inputArea = document.getElementById("inputarea");
+        const translateButton = document.getElementById("translatebutton");
+        const outputArea = document.getElementById("outputarea");
+        translateButton.addEventListener("click", () => {
+            const json = inputArea.value;
+            const outputjson = generateCSharpClassesFromJSON(json);
+            outputArea.innerText = outputjson;
+        });
+    </script>
+</body>
+
+</html>
